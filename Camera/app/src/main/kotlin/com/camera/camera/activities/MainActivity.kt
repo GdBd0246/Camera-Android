@@ -363,8 +363,7 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener {
         setupPreviewImage(false)
         mPreview?.checkFlashlight()
     }
-
-    private fun setupPreviewImage(isPhoto: Boolean) {
+private fun setupPreviewImage(isPhoto: Boolean) {
         val uri = if (isPhoto) MediaStore.Images.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
         val lastMediaId = getLatestMediaId(uri)
         if (lastMediaId == 0L) {
@@ -387,6 +386,7 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener {
             }
         }
     }
+
 
     private fun scheduleFadeOut() {
         if (!config.keepSettingsVisible) {

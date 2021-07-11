@@ -143,8 +143,7 @@ class SettingsActivity : SimpleActivity() {
             config.savePhotoMetadata = settings_save_photo_metadata.isChecked
         }
     }
-
-    private fun setupSavePhotosFolder() {
+private fun setupSavePhotosFolder() {
         settings_save_photos.text = getLastPart(config.savePhotosFolder)
         settings_save_photos_holder.setOnClickListener {
             FilePickerDialog(this, config.savePhotosFolder, false, showFAB = true) {

@@ -364,29 +364,7 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener {
         mPreview?.checkFlashlight()
     }
 
-    private fun setupPreviewImage(isPhoto: Boolean) {
-        val uri = if (isPhoto) MediaStore.Images.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-        val lastMediaId = getLatestMediaId(uri)
-        if (lastMediaId == 0L) {
-            return
-        }
-
-        mPreviewUri = Uri.withAppendedPath(uri, lastMediaId.toString())
-
-        runOnUiThread {
-            if (!isDestroyed) {
-                val options = RequestOptions()
-                    .centerCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-
-                Glide.with(this)
-                    .load(mPreviewUri)
-                    .apply(options)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(last_photo_video_preview)
-            }
-        }
-    }
+   
 
     private fun scheduleFadeOut() {
         if (!config.keepSettingsVisible) {
